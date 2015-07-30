@@ -1,1 +1,15 @@
 @import "bower_components/susy/sass/susy"
+
+
+body
+  @include container(80em)
+
+
+#content
+  @include span(6 of 12)
+
+
+  input
+    @include span(6 of 12)
+    @include push(3)
+    margin-bottom: 10px

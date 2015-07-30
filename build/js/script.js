@@ -2,7 +2,7 @@ var myApp = {};
 
 myApp.Something = React.createClass({
 
-  getDefaultProps: function(){
+  getInitialState: function(){
     return {
       username: '',
       repository: ''

@@ -4,6 +4,7 @@ var connect     = require("gulp-connect");
 var sass        = require('gulp-ruby-sass');
 var sourcemaps  = require('gulp-sourcemaps');
 var mergeStream = require('merge-stream');
+var runSequence = require('run-sequence');
 
 gulp.task("connect", function(){
   connect.server({
@@ -35,3 +36,14 @@ gulp.task('copy', function(){
 
   mergeStream(js,html)
 });
+
+
+gulp.task('watch', function(){
+  gulp.watch([
+    'app/**/*.js',
+    'app/**/*.html',
+    'app/**/*.sass'
+  ], function(){
+    runSequence('copy', 'sass')
+  });
+})
